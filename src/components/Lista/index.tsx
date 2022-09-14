@@ -5,8 +5,7 @@ import style from './Lista.module.scss';
 
 interface Props {
   tarefas: ITarefa[],
-  selecionaTarefa: (tarefaSelecionada: ITarefa) => void
-
+  selecionaTarefa: (tarefaSelecionada: ITarefa) => void 
 }
 
 
@@ -15,9 +14,9 @@ function Lista({ tarefas, selecionaTarefa }: Props) {
     <aside className={style.listaTarefas}>
       <h2> Estudos do dia </h2>
       <ul>
-        {tarefas.map((item) => (
+        {tarefas.map(item => (
           <Item
-          selecionaTarefa={selecionaTarefa}
+            selecionaTarefa={selecionaTarefa}
             key={item.id}
             {...item}
           />
