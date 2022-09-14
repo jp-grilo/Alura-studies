@@ -1,27 +1,17 @@
 import React, { useState } from 'react';
-import Form from '../Components/Form';
-import List from '../Components/List';
-import Stopwatch from '../Components/Stopwatch';
-import ITarefa from '../types/tarefas';
-import style from './app.module.scss';
+import Cronometro from '../components/Cronometro';
+import Formulario from '../components/Formulario';
+import Lista from '../components/Lista';
+import { ITarefa } from '../types/tarefa';
+import style from './App.module.scss';
 
 function App() {
-
-  const [tarefas, setTarefas] = useState<ITarefa[]>([])
-  const [selected, setSelected] = useState<ITarefa>();
-
-  function selectTask(taskSelected : ITarefa){
-    setSelected(taskSelected);
-  }
-
+  const [tarefas, setTarefas] = useState<ITarefa[]>([]);
   return (
     <div className={style.AppStyle}>
-      <Form setTarefas={setTarefas}/>
-      <List 
-      tarefas={tarefas}
-      selectTask={selectTask}
-      />
-      <Stopwatch />
+      <Formulario setTarefas={setTarefas} />
+      <Lista tarefas={tarefas} />
+      <Cronometro />
     </div>
   );
 }
